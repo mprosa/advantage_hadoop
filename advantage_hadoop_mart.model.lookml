@@ -4,24 +4,26 @@
 - include: "*.dashboard.lookml"  # include all the dashboards
 
 - explore: segment_affinity
+  label: 'Segment Content Affinity'
+  
 - explore: fa_session
   label: 'Digital Sessions'
   description: 'Sessions data from web analytics'
   
 - explore: fa_page_view
-  label: 'Digital Views- Pages'
+  label: 'Digital Page Views'
   
 - explore: fa_video_view
-  label: 'Digital Views- Videos'
+  label: 'Digital Video Views'
   
 - explore: fa_referrals_daily
-  label: 'Audience Acquisition- Referral Source Analysis'
+  label: 'Digital Referrals'
   
 - explore: fa_audience_engagement_daily
-  label: 'Audience Engagement- Daily'
+  label: 'Digital Engagement- Daily'
   
 - explore: fa_audience_engagement_hourly
-  label: 'Audience Engagement- Hourly'
+  label: 'Digital Engagement- Hourly'
 
 - explore: db_individual_attribute
   label: 'Digital Individual Attributes'
