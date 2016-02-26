@@ -22,6 +22,9 @@
   
 - explore: fa_audience_engagement_hourly
   label: 'Audience Engagement- Hourly'
+
+- explore: db_individual_attribute
+  label: 'Digital Individual Attributes'
 #- explore: db_digital_profile_master
 #- explore: fa_campaign_summary_denorm
 #- explore: fa_campaign_response_summary_denorm
