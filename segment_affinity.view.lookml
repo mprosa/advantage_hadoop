@@ -20,6 +20,7 @@
         d_audience_segment c
       on
         a.audience_segment_id = c.audience_segment_id
+      persist_for: 12 hours
     
   fields:
   - dimension: master_digital_profile_id
