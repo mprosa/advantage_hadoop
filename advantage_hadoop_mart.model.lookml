@@ -5,6 +5,10 @@
 
 - explore: segment_affinity
   label: 'Segment Content Affinity'
+  always_filter:
+    segment_name: 'Registered Users'
+    registered_flg: 1
+    content_tag: 't_hendrick_motorsports'
   
 - explore: fa_session
   label: 'Digital Sessions'

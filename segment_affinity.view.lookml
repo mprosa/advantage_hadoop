@@ -20,8 +20,7 @@
         d_audience_segment c
       on
         a.audience_segment_id = c.audience_segment_id
-      persist_for: 12 hours
-    
+
   fields:
   - dimension: master_digital_profile_id
     type: number
@@ -51,18 +50,10 @@
     type: number
     sql: ${TABLE}.date_yyyymm
     
-  - dimension: monthly_affinity_score
+  - dimension: annual_affinity_score
     type: number
-    sql: ${TABLE}.monthly_affinity_score
+    sql: ${TABLE}.annual_affinity_score
     
-  - dimension: time_spent_on_page
-    type: number
-    sql: ${TABLE}.time_spent_on_page
-    
-  - dimension: page_views
-    type: number
-    sql: ${TABLE}.page_views
-    
-  - measure: total_time_spent
+  - measure: average_affinity_score
     type: avg
-    sql: ${TABLE}.time_spent_on_page
+    sql: ${TABLE}.annual_affinity_score
