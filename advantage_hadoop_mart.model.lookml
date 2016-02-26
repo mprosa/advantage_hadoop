@@ -22,13 +22,34 @@
   
 - explore: fa_referrals_daily
   label: 'Digital Referrals'
+  joins:
+    - join: d_audience_segment
+      type: inner
+      relationship: one_to_one
+      sql_on: ${fa_referrals_daily.audience_segment_id}=${d_audience_segment.audience_segment_id}
+      view_label: 'Fa Referrals Daily'
+      fields: [segment_name]
   
 - explore: fa_audience_engagement_daily
   label: 'Digital Engagement- Daily'
-  
+  joins:
+    - join: d_audience_segment
+      type: inner
+      relationship: one_to_one
+      sql_on: ${fa_audience_engagement_daily.audience_segment_id}=${d_audience_segment.audience_segment_id}
+      view_label: 'Fa Audience Engagement Daily'
+      fields: [segment_name]
+      
 - explore: fa_audience_engagement_hourly
   label: 'Digital Engagement- Hourly'
-
+  joins:
+    - join: d_audience_segment
+      type: inner
+      relationship: one_to_one
+      sql_on: ${fa_audience_engagement_hourly.audience_segment_id}=${d_audience_segment.audience_segment_id}
+      view_label: 'Fa Audience Engagement Hourly'
+      fields: [segment_name]
+      
 - explore: db_individual_attribute
   label: 'Digital Individual Attributes'
 #- explore: db_digital_profile_master
