@@ -2,33 +2,24 @@
   derived_table:
     sql: |
       select
-        a.master_digital_profile_id, 
-        a.audience_segment_id, 
-        c.segment_name, 
-        b.content_tag, 
-        b.device_group, 
-        b.registered_flg, 
+        a.master_digital_profile_id,
+        a.audience_segment_id,
+        c.segment_name,
+        b.content_tag,
+        b.device_group,
+        b.registered_flg,
         b.date_yyyymm,
-        b.monthly_affinity_score,
-        d.time_spent_on_page,
-        d.page_views
+        b.annual_affinity_score
       from 
         db_individual_audience_segment a
-      inner join 
+      inner join
         fa_page_view_content_affinity_by_month b
       on 
         CAST(a.master_digital_profile_id as STRING) = b.master_digital_profile_id
       inner join
-      d_audience_segment c
-      on 
-      a.audience_segment_id = c.audience_segment_id
-      inner join 
-      fa_page_view_content_by_month d
+        d_audience_segment c
       on
-      b.master_digital_profile_id = d.master_digital_profile_id
-      where 
-      b.date_yyyymm = d.date_yyyymm
-
+        a.audience_segment_id = c.audience_segment_id
   fields:
   - dimension: master_digital_profile_id
     type: number
