@@ -20,6 +20,7 @@
         d_audience_segment c
       on
         a.audience_segment_id = c.audience_segment_id
+    
   fields:
   - dimension: master_digital_profile_id
     type: number
