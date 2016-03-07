@@ -21,7 +21,8 @@
     type: number
     sql: ${TABLE}.dataset_instance_id
 
-  - measure: count
-    type: count
-    drill_fields: [attribute_name]
+  - measure: audience_count
+    type: count_distinct
+    sql: ${master_digital_profile_id}
+    drill_fields: []
 

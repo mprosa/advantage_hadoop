@@ -7,16 +7,12 @@
     sql: ${TABLE}.session_id
 
   - dimension: session_start_date_id
-    type: number
+    type: time
+    datatype:  yyyymmdd
+    timeframes: [date, week, month, year]  
     sql: ${TABLE}.session_start_date_id
 
-  - dimension: video_view_end_date_yyyymm
-    type: number
-    sql: ${TABLE}.video_view_end_date_yyyymm
 
-  - dimension: video_clip_id
-    type: string
-    sql: ${TABLE}.video_clip_id
 
   - dimension: video_view_start_date_yyyymm
     type: number
@@ -59,13 +55,61 @@
     sql: ${TABLE}.next_video_view_site_section    
 
   - dimension: authenticated_flg
-    type: number
-    sql: ${TABLE}.authenticated_flg
+    type: yesno
+    sql: ${TABLE}.authenticated_flg=1
 
   - dimension: ip_geo_postal_code
     type: string
     sql: ${TABLE}.ip_geo_postal_code
 
+  - dimension: video_view_end_date_id
+    type: time
+    datatype:  yyyymmdd
+    timeframes: [date, week, month, year]  
+    sql: ${TABLE}.video_view_end_date_id
+ 
+  - dimension: video_view_end_date_time
+    type: time
+    datatype:  yyyymmdd
+    timeframes: [date, week, month, year]  
+    sql: ${TABLE}.video_view_end_date_time
+
+  - dimension: video_view_start_date_id
+    type: time
+    datatype:  yyyymmdd
+    timeframes: [date, week, month, year]  
+    sql: ${TABLE}.video_view_start_date_id
+
+  - dimension: video_view_start_date_time
+    type: time
+    datatype:  yyyymmdd
+    timeframes: [date, week, month, year]  
+    sql: ${TABLE}.video_view_start_date_time
+
+  - measure: count
+    type: count
+    drill_fields: [page_name, video_clip_name, country_name, ip_geo_country_name, domain_name]
+    
+  - measure: total_time_spent
+    type: sum
+    sql: ${TABLE}.amt_time_spent
+
+  - measure: authenticated_sessions
+    type: sum
+    sql: ${TABLE}.authenticated_flg
+
+  - dimension: video_clip_id
+    hidden: true
+    type: string
+    sql: ${TABLE}.video_clip_id
+
+  - dimension: video_clip_name
+    type: string
+    sql: ${TABLE}.video_clip_name
+
+#  - dimension: video_view_end_date_yyyymm
+#    type: number
+#    sql: ${TABLE}.video_view_end_date_yyyymm
 #   - dimension: session_start_date_time
 #     type: string
 #     sql: ${TABLE}.session_start_date_time
@@ -210,7 +254,6 @@
 #     type: string
 #     sql: ${TABLE}.search_engine
 # 
-
 #   - dimension: site
 #     type: string
 #     sql: ${TABLE}.site
@@ -227,35 +270,4 @@
 #     type: string
 #     sql: ${TABLE}.video_clip_instance_id
 
-#   - dimension: video_clip_name
-#     type: string
-#     sql: ${TABLE}.video_clip_name
-# 
-#   - dimension: video_view_end_date_id
-#     type: number
-#     sql: ${TABLE}.video_view_end_date_id
-# 
-#   - dimension: video_view_end_date_time
-#     type: string
-#     sql: ${TABLE}.video_view_end_date_time
-
-#   - dimension: video_view_start_date_id
-#     type: number
-#     sql: ${TABLE}.video_view_start_date_id
-
-#   - dimension: video_view_start_date_time
-#     type: string
-#     sql: ${TABLE}.video_view_start_date_time
-
-  - measure: count
-    type: count
-    drill_fields: [page_name, video_clip_name, country_name, ip_geo_country_name, domain_name]
-    
-  - measure: total_time_spent
-    type: sum
-    sql: ${TABLE}.amt_time_spent
-
-  - measure: authenticated_sessions
-    type: sum
-    sql: ${TABLE}.authenticated_flg
 

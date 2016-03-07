@@ -3,12 +3,12 @@
 - include: "*.view.lookml"       # include all the views
 - include: "*.dashboard.lookml"  # include all the dashboards
 
-- explore: segment_affinity
-  label: 'Segment Content Affinity'
-  always_filter:
-    segment_name: 'Registered Users'
-    registered_flg: 1
-    content_tag: 't_hendrick_motorsports'
+#- explore: segment_affinity
+#  label: 'Segment Content Affinity'
+#  always_filter:
+#    segment_name: 'Registered Users'
+#    registered_flg: 1
+#    content_tag: 't_hendrick_motorsports'
   
 - explore: fa_session
   label: 'Digital Sessions'
@@ -27,7 +27,7 @@
       type: inner
       relationship: one_to_one
       sql_on: ${fa_referrals_daily.audience_segment_id}=${d_audience_segment.audience_segment_id}
-      view_label: 'Fa Referrals Daily'
+      view_label: 'Digital Referrals'
       fields: [segment_name]
   
 - explore: fa_audience_engagement_daily
@@ -37,7 +37,7 @@
       type: inner
       relationship: one_to_one
       sql_on: ${fa_audience_engagement_daily.audience_segment_id}=${d_audience_segment.audience_segment_id}
-      view_label: 'Fa Audience Engagement Daily'
+      view_label: 'Digital Engagement- Daily'
       fields: [segment_name]
       
 - explore: fa_audience_engagement_hourly
@@ -47,11 +47,13 @@
       type: inner
       relationship: one_to_one
       sql_on: ${fa_audience_engagement_hourly.audience_segment_id}=${d_audience_segment.audience_segment_id}
-      view_label: 'Fa Audience Engagement Hourly'
+      view_label: 'Digital Engagement- Hourly'
       fields: [segment_name]
       
 - explore: db_individual_attribute
   label: 'Digital Individual Attributes'
+  
+  
 #- explore: db_digital_profile_master
 #- explore: fa_campaign_summary_denorm
 #- explore: fa_campaign_response_summary_denorm
