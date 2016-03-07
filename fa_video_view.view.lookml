@@ -6,18 +6,13 @@
     type: string
     sql: ${TABLE}.session_id
 
-  - dimension: session_start_date_id
+  - dimension: session_start_date_id  
+    view_label: "Session Start"  
     type: time
     datatype:  yyyymmdd
     timeframes: [date, week, month, year]  
     sql: ${TABLE}.session_start_date_id
 
-
-
-  - dimension: video_view_start_date_yyyymm
-    type: number
-    sql: ${TABLE}.video_view_start_date_yyyymm
-    
   - dimension: business_unit
     type: string
     sql: ${TABLE}.business_unit
@@ -63,28 +58,18 @@
     sql: ${TABLE}.ip_geo_postal_code
 
   - dimension: video_view_end_date_id
+    view_label: "View View End"    
     type: time
     datatype:  yyyymmdd
     timeframes: [date, week, month, year]  
     sql: ${TABLE}.video_view_end_date_id
- 
-  - dimension: video_view_end_date_time
-    type: time
-    datatype:  yyyymmdd
-    timeframes: [date, week, month, year]  
-    sql: ${TABLE}.video_view_end_date_time
 
   - dimension: video_view_start_date_id
+    view_label: "View View Start"    
     type: time
     datatype:  yyyymmdd
     timeframes: [date, week, month, year]  
     sql: ${TABLE}.video_view_start_date_id
-
-  - dimension: video_view_start_date_time
-    type: time
-    datatype:  yyyymmdd
-    timeframes: [date, week, month, year]  
-    sql: ${TABLE}.video_view_start_date_time
 
   - measure: count
     type: count
@@ -106,7 +91,23 @@
   - dimension: video_clip_name
     type: string
     sql: ${TABLE}.video_clip_name
+    
+#  - dimension: video_view_start_date_time
+#    type: time
+#    datatype:  yyyymmdd
+#    timeframes: [date, week, month, year]  
+#    sql: ${TABLE}.video_view_start_date_time
 
+#  - dimension: video_view_end_date_time
+#    type: time
+#    datatype:  yyyymmdd
+#    timeframes: [date, week, month, year]  
+#    sql: ${TABLE}.video_view_end_date_time
+
+#  - dimension: video_view_start_date_yyyymm
+#    type: number
+#    sql: ${TABLE}.video_view_start_date_yyyymm
+#
 #  - dimension: video_view_end_date_yyyymm
 #    type: number
 #    sql: ${TABLE}.video_view_end_date_yyyymm
